@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>So if you want to change the world, start off by making your bed.</title>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+        }
+        body {
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 100;
+            text-align: center;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: calc(10vw);
+            line-height: 1.2;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <p>So if you want to change the world, start off by making your bed.</p>
+    <script>
+        function resizeText(){
+          const p = document.querySelector('p');
+            let fontSize = 16; 
+            const bodyWidth = window.innerWidth;
+            const bodyHeight = window.innerHeight;
+
+            p.style.fontSize = `${fontSize}vw`;
+
+            while (
+                (p.offsetWidth > bodyWidth || p.offsetHeight > bodyHeight) &&
+                fontSize > 0.5
+            ) {
+                // サイズを少しずつ縮小
+                fontSize -= 0.1; 
+                p.style.fontSize = `${fontSize}vw`;
+            }
+        };
+
+        window.addEventListener('resize', resizeText);
+        window.addEventListener('load', resizeText);
+    </script>
+</body>
+</html>
